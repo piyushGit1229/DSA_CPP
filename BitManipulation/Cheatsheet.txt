@@ -1,0 +1,51 @@
+bit_manipulation_cheatsheet:
+
+  add_without_plus_operator:
+    step_1: "int sum = a ^ b  # Sum without carry"
+    step_2: "int carry = (a & b) << 1  # Carry shifted left"
+
+  ones_and_twos_complement:
+    ones_complement: "int oneComplement = ~num"
+    twos_complement: "int twoComplement = oneComplement + 1"
+
+  swap_two_numbers_without_temp:
+    step_1: "a = a ^ b"
+    step_2: "b = a ^ b"
+    step_3: "a = a ^ b"
+
+  check_ith_bit_set:
+    mask: "int mask = num >> i"
+    bit: "int bit = mask & 1  # 1 = set, 0 = not set"
+
+  check_even_or_odd:
+    condition: 
+      odd: "if (num & 1) → odd"
+      even: "else → even"
+
+  get_ith_bit:
+    mask: "int mask = num >> i"
+    result: "int bit = mask & 1  # 1 = set, 0 = not set"
+
+  set_ith_bit:
+    step_1: "int mask = 1 << i"
+    step_2: "num = num | mask"
+
+  clear_ith_bit:
+    step_1: "int mask = 1 << i"
+    step_2: "num = num & ~mask"
+
+  toggle_ith_bit:
+    step_1: "int mask = 1 << i"
+    step_2: "num = num ^ mask"
+
+  remove_last_set_bit:
+    operation: "num = num & (num - 1)"
+
+  check_power_of_two:
+    method_1: "if ((num & (num - 1)) == 0) → power of two"
+    method_2: "num == pow(2, i)  # i from 0 to 30"
+
+  count_set_bits:
+    logic:
+      - "if (n & 1) → ans++"
+      - "n = n >> 1"
