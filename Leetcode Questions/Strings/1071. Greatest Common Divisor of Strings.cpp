@@ -23,7 +23,7 @@ public:
         return "";
       }  
       else{
-        return str2.substr(0,gcd(n,n2));
+        // return str2.substr(0,gcd(n,n2));
       }
     }
 };
