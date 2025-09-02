@@ -14,8 +14,8 @@ public:
                 int mn = INT_MAX;
                 mp[s[j]]++;
                 for (auto& it : mp) {
-                    mx = max(mx, it.second);
-                    mn = min(mn, it.second);
+                    mx = max(mx, it.second);  
+                    mn = min(mn, it.second); 
                 }
                 ans += mx - mn;
             }
