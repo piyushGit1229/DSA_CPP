@@ -1,4 +1,4 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
 /*
@@ -29,23 +29,49 @@ Steps in code:
 - If found, return true else false
 */
 
-class Solution {
+class Solution
+{
 public:
-    bool repeatedSubstringPattern(string s) {
-        string ans = s + s;
-        if (ans.substr(1, ans.size() - 2).find(s) != -1)
-            return true;
-        else {
-            return false;
+    bool repeatedSubstringPattern(string s)
+    {
+        // string ans = s + s;
+        // if (ans.substr(1, ans.size() - 2).find(s) != -1)
+        //     return true;
+        // else {
+        //     return false;
+        // }
+
+        // apporach 2
+        int n = s.size();
+        for (int i = 0; i < n / 2; i++)
+        {
+            if (n % i == 0)
+            {
+                int times = n / i;
+                string pattern = s.substr(0, i);
+                string newstr = "";
+                while (times--)
+                {
+                    newstr += pattern;
+                }
+                if (newstr == pattern)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
         }
     }
 };
 
-int main(){
-Solution sol;
-string s="abab";
-sol.repeatedSubstringPattern(s);
+int main()
+{
+    Solution sol;
+    string s = "abab";
+    sol.repeatedSubstringPattern(s);
 
-
-return 0;
+    return 0;
 }
