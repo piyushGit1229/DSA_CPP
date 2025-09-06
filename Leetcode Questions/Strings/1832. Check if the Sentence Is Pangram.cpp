@@ -28,17 +28,17 @@ public:
         }
     }
      // vectorappoach
-        vector<int> arr(26, 0);
-        for (char& ch : sentence) {
-            int index = ch - 'a';
-            arr[index]++;
-        }
-        for (int x : arr) {
-            if (x == 0) {
-                return false;
-            }
-        }
-        return true;
+        // // vector<int> arr(26, 0);
+        // for (char& ch : sentence) {
+        //     int index = ch - 'a';
+        //     arr[index]++;
+        // }
+        // for (int x : arr) {
+        //     if (x == 0) {
+        //         return false;
+        //     }
+        // }
+        // return true;
 };
 
 int main(){
