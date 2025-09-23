@@ -21,9 +21,6 @@ vector<int> nextGreatertoright(vector<int> &arr)
 int main()
 {
     vector<int>arr ={4, 5, 2, 10, 8};
-    vector<int>res = nextGreatertoright(arr);
-    for(int val: res){
-        cout<<val<<" ";
-    }
+    nextGreatertoright(arr);
     return 0;
 }
