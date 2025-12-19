@@ -131,6 +131,9 @@ return 0;
 // 1 1
 
 
+/*
+
+
 #include<bits/stdc++.h>
 using namespace std;
 void solve(vector<int>&arr,int i,int target,int sum,vector<int>&result){
@@ -143,6 +146,65 @@ void solve(vector<int>&arr,int i,int target,int sum,vector<int>&result){
         }
         return;
     }
+    result.push_back(arr[i]);
+    solve(arr,i+1,target,sum + arr[i],result);
+    result.pop_back();
+    solve(arr,i+1,target,sum,result);
+}
+int main(){
+int n;
+int target;
+cout<<"Enter the size:";
+cin>>n;
+vector<int>arr(n);
+for(int i=0;i<n;i++){
+    cin>>arr[i];
+}
+cout<<"Enter the target:";
+cin>>target;
+int sum=0;
+vector<int>result;
+solve(arr,0,target,0,result);
+return 0;
+}
+
+
+
+*/
+
+
+
+// Problem: Print Any Subsequence With Given Sum
+// Given an integer array nums and an integer target sum,
+// print ANY ONE non-empty subsequence whose sum equals the target.
+// A subsequence keeps the relative order of elements but may skip elements.
+// If multiple valid subsequences exist, printing any one is sufficient.
+// If no such subsequence exists, print nothing.
+
+// ✅ Test Case 1 – Basic
+// Input
+// 3
+// 1 2 1
+// 2
+// Valid Output (any one)
+// 2
+// OR
+// 1 1
+
+#include<bits/stdc++.h>
+using namespace std;
+
+void solve(vector<int>&arr,int i,int target,int sum,vector<int>&result){
+    if(i==arr.size()){
+        if(sum == target){
+            for(int x:result){
+                cout<<x<<" ";
+            }
+            cout<<endl;
+        }
+        return;
+    }
+        
     result.push_back(arr[i]);
     solve(arr,i+1,target,sum + arr[i],result);
     result.pop_back();
