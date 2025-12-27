@@ -188,18 +188,146 @@ return 0;
 
 // 6. sum of digits
 
-#include<iostream>
+// #include<iostream>
+// using namespace std;
+// int sumofdigs(int x,int sum){
+//     if(x==0){
+//         return sum;
+//     }
+//     return sumofdigs(x/10,sum+x%10);
+// }
+// int main(){
+// int x;
+// cout<<"Enter the number:";
+// cin>>x;
+// cout<<sumofdigs(x,0);
+// return 0;
+// }
+
+
+// Problem Statement (clear & simple)
+
+// Given a string, remove duplicate characters
+// and keep only first occurrence of each character
+// using recursion only.
+
+// Example
+// Input  : "aabbccda"
+// Output : "abcd"
+
+
+// #include<bits/stdc++.h>
+// using namespace std;
+
+// void removeduplicate(string s,int i,vector<bool> &visited){
+//     if(i==s.size()){
+//         return;
+//     }
+//     if(visited[s[i]-'a'] == true){
+//         removeduplicate(s,i+1,visited); //skip
+//     }
+//     else{
+//         visited[s[i]-'a'] = true;
+//         removeduplicate(s,i+1,visited);
+//         cout<<s[i];
+//     }
+// }
+
+// int main(){
+// string s;
+// cin>>s;
+// set<char>st;
+// for(int i=0;i<s.size();i++){
+//     st.insert(s[i]);
+// }
+// for(auto it:st){
+//     cout<<it;
+// }
+// return 0;
+// stack<char>st;
+// for(int i=0;i<s.size();i++){
+//     if(st.empty()){
+//         st.push(s[i]);
+//     }
+//     else{
+//         if(st.top()==s[i]){
+//             st.pop();
+//         }
+//         else{
+//             st.push(s[i]);
+//         }
+//     }
+// }
+// while(!st.empty()){
+//     cout<<st.top();
+//     st.pop();
+// }
+
+//with recursion
+// vector<bool>visited(26,false);
+// removeduplicate(s,0,visited);
+
+// return 0;
+// }
+
+
+
+
+// Reverse a stack using recursion
+
+
+// Example 1:
+// Input:
+//  stack = [4, 1, 3, 2]  
+// Output:
+//  [2, 3, 1, 4]
+
+#include <bits/stdc++.h>
 using namespace std;
-int sumofdigs(int x,int sum){
-    if(x==0){
-        return sum;
+
+void insertAtBottom(stack<int>& st, int x) {
+    if (st.empty()) {
+        st.push(x);
+        return;
     }
-    return sumofdigs(x/10,sum+x%10);
+
+    int top = st.top();
+    st.pop();
+
+    insertAtBottom(st, x);
+
+    st.push(top);
 }
-int main(){
-int x;
-cout<<"Enter the number:";
-cin>>x;
-cout<<sumofdigs(x,0);
-return 0;
+
+void reverseStack(stack<int>& st) {
+    if (st.empty()) {
+        return;
+    }
+
+    int top = st.top();
+    st.pop();
+
+    reverseStack(st);
+
+    insertAtBottom(st, top);
+}
+
+int main() {
+    stack<int> st;
+    int n;
+    cin >> n;
+
+    for (int i = 0; i < n; i++) {
+        int x;
+        cin >> x;
+        st.push(x);
+    }
+
+    reverseStack(st);
+
+    // print stack
+    while (!st.empty()) {
+        cout << st.top() << " ";
+        st.pop();
+    }
 }
