@@ -195,16 +195,19 @@ return 0;
 using namespace std;
 
 void solve(vector<int>&arr,int i,int target,int sum,vector<int>&result){
+    bool found = false;
     if(i==arr.size()){
-        if(sum == target){
+         if(sum == target && !found){
             for(int x:result){
                 cout<<x<<" ";
             }
             cout<<endl;
-        }
-        return;
+            found = true;
+         }
+         return;
     }
-        
+
+    if(found) return;
     result.push_back(arr[i]);
     solve(arr,i+1,target,sum + arr[i],result);
     result.pop_back();
