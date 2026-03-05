@@ -53,10 +53,27 @@ void inorder(Node *root)
     inorder(root->right);
 }
 
+bool search(Node* root,int val){
+    if(root == nullptr){
+        return false;
+    }
+    if(root->data == val){
+        return true;
+    }
+    if(val < root->data){
+        return search(root->left,val);
+    }
+    else{
+        return search(root->right,val);
+    }
+}
+
 int main()
 {
     vector<int> arr = {3, 2, 1, 5, 6, 4};
     Node *root = buildBST(arr);
     inorder(root);
+    cout<<endl;
+    cout<<search(root,5);
     return 0;
 }
