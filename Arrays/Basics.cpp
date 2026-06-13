@@ -275,21 +275,31 @@
 // }
 
 
-#include<iostream>
+// #include<iostream>
+// using namespace std;
+
+// bool issorted(int arr[],int n,int i){
+//     if(i == n-1){
+//         return true;
+//     }
+//     if(arr[i]<arr[i+1]){
+//      return issorted(arr,n,i+1);
+//     }
+//     else{
+//         return false;
+//     }
+// }
+// int main(){
+
+// return 0;
+// }
+
+#include<bits/stdc++.h>
 using namespace std;
-
-bool issorted(int arr[],int n,int i){
-    if(i == n-1){
-        return true;
-    }
-    if(arr[i]<arr[i+1]){
-     return issorted(arr,n,i+1);
-    }
-    else{
-        return false;
-    }
-}
 int main(){
-
+float num = 5.90283021232;
+// cout<<fixed<<setprecision(2)<<num;
+//using .2f
+cout<<.2f(num);
 return 0;
 }

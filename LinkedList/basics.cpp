@@ -40,6 +40,7 @@ void insertatpos(Node *&head, int position, int data)
     temp->next = nodetoinsert;
 }
 
+
 void deleteAtBeginning(Node *&head)
 {
     if (head == nullptr)

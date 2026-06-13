@@ -91,6 +91,24 @@
 
 
 
+#include<iostream>
+
+using namespace std;
+
+int sum(int n){
+   if(n == 1){
+      return 1;
+   }
+   return n + sum(n-1);
+}
+int main(){
+   int n;
+   cin>>n;
+   cout<<sum(n);
+}
+
+
+
 
 //Factorial using recursion
 
@@ -221,30 +239,33 @@
 
 
 //check palindrome using recursion
-#include<iostream>
-using namespace std;
-bool ispalind(string s,int i,int j){
+// #include<iostream>
+// using namespace std;
+// bool ispalind(string s,int i,int j){
  
- //base case
- if(s[i]!=s[j]){
-    return false;
- }
+//  //base case
+//  if(s[i]!=s[j]){
+//     return false;
+//  }
  
- if(i>=j){
-    return true;
- }
- return ispalind(s,i+1,j-1);
-}
-int main(){
-string s;
-cout<<"Enter string :";
-cin>>s;
-bool ans = ispalind(s,0,s.size()-1);
-if(ans){
- cout<<"Plaindrome";
-}
-else{
-    cout<<"Not palindrome";
-}
-return 0;
-}
+//  if(i>=j){
+//     return true;
+//  }
+//  return ispalind(s,i+1,j-1);
+// }
+// int main(){
+// string s;
+// cout<<"Enter string :";
+// cin>>s;
+// bool ans = ispalind(s,0,s.size()-1);
+// if(ans){
+//  cout<<"Plaindrome";
+// }
+// else{
+//     cout<<"Not palindrome";
+// }
+// return 0;
+// }
+
+
+// revise
